@@ -140,6 +140,8 @@ TW_OZIP_DECRYPT_KEY := 0000
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone3/temp
+TW_Y_OFFSET := 115
+TW_H_OFFSET := -115
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
