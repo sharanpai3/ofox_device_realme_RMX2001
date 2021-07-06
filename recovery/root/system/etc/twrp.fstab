@@ -39,4 +39,4 @@ preload_common   /common_preload   ext4
 /proinfo         emmc /dev/block/platform/bootdevice/by-name/proinfo
 
 /external_sd     auto /dev/block/mmcblk0p1 /dev/block/mmcblk0                flags=storage;wipeingui;removable;backup=0
-/usbotg          auto /dev/block/sdd1      /dev/block/sdd                    flags=display="USB-OTG";storage;wipeingui;removable;backup=0
+/usbotg          vfat /dev/block/sdd1      /dev/block/sdd                    flags=display="USB-OTG";storage;wipeingui;removable;backup=0
