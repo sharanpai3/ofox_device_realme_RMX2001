@@ -14,22 +14,15 @@
 # limitations under the License.
 #
 
-# Dynamic
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
-# Inherit from our PitchBlack configuration
+# Inherit from our Recovery configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
-
-# Fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery
+# Inherit device.mk from the device tree
+$(call inherit-product, device/realme/RMX2001/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := RMX2001
@@ -37,7 +30,3 @@ PRODUCT_NAME := omni_RMX2001
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := RMX2001
 PRODUCT_MANUFACTURER := realme
-
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
